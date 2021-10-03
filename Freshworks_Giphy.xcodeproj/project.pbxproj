@@ -9,13 +9,15 @@
 /* Begin PBXBuildFile section */
 		251B3E782708C47A00C16C88 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 251B3E772708C47A00C16C88 /* AppDelegate.swift */; };
 		251B3E7A2708C47A00C16C88 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 251B3E792708C47A00C16C88 /* SceneDelegate.swift */; };
-		251B3E7C2708C47A00C16C88 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 251B3E7B2708C47A00C16C88 /* ViewController.swift */; };
 		251B3E7F2708C47A00C16C88 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 251B3E7D2708C47A00C16C88 /* Main.storyboard */; };
 		251B3E812708C47C00C16C88 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 251B3E802708C47C00C16C88 /* Assets.xcassets */; };
 		251B3E842708C47C00C16C88 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 251B3E822708C47C00C16C88 /* LaunchScreen.storyboard */; };
 		251B3E8F2708C47C00C16C88 /* Freshworks_GiphyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 251B3E8E2708C47C00C16C88 /* Freshworks_GiphyTests.swift */; };
 		251B3E992708C47C00C16C88 /* Freshworks_GiphyUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 251B3E982708C47C00C16C88 /* Freshworks_GiphyUITests.swift */; };
 		251B3E9B2708C47C00C16C88 /* Freshworks_GiphyUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 251B3E9A2708C47C00C16C88 /* Freshworks_GiphyUITestsLaunchTests.swift */; };
+		251B3EAB27099D0100C16C88 /* FWModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 251B3EAA27099D0100C16C88 /* FWModel.swift */; };
+		251B3EAE27099D5300C16C88 /* FWApiClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 251B3EAD27099D5300C16C88 /* FWApiClient.swift */; };
+		251B3EB127099DDA00C16C88 /* FWImageProcessing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 251B3EB027099DDA00C16C88 /* FWImageProcessing.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,7 +41,6 @@
 		251B3E742708C47A00C16C88 /* Freshworks_Giphy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Freshworks_Giphy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		251B3E772708C47A00C16C88 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		251B3E792708C47A00C16C88 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		251B3E7B2708C47A00C16C88 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		251B3E7E2708C47A00C16C88 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		251B3E802708C47C00C16C88 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		251B3E832708C47C00C16C88 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -49,6 +50,9 @@
 		251B3E942708C47C00C16C88 /* Freshworks_GiphyUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Freshworks_GiphyUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		251B3E982708C47C00C16C88 /* Freshworks_GiphyUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Freshworks_GiphyUITests.swift; sourceTree = "<group>"; };
 		251B3E9A2708C47C00C16C88 /* Freshworks_GiphyUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Freshworks_GiphyUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		251B3EAA27099D0100C16C88 /* FWModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FWModel.swift; sourceTree = "<group>"; };
+		251B3EAD27099D5300C16C88 /* FWApiClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FWApiClient.swift; sourceTree = "<group>"; };
+		251B3EB027099DDA00C16C88 /* FWImageProcessing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FWImageProcessing.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,7 +105,9 @@
 			children = (
 				251B3E772708C47A00C16C88 /* AppDelegate.swift */,
 				251B3E792708C47A00C16C88 /* SceneDelegate.swift */,
-				251B3E7B2708C47A00C16C88 /* ViewController.swift */,
+				251B3EB027099DDA00C16C88 /* FWImageProcessing.swift */,
+				251B3EAC27099D4B00C16C88 /* Network */,
+				251B3EA927099CF700C16C88 /* Model */,
 				251B3E7D2708C47A00C16C88 /* Main.storyboard */,
 				251B3E802708C47C00C16C88 /* Assets.xcassets */,
 				251B3E822708C47C00C16C88 /* LaunchScreen.storyboard */,
@@ -125,6 +131,22 @@
 				251B3E9A2708C47C00C16C88 /* Freshworks_GiphyUITestsLaunchTests.swift */,
 			);
 			path = Freshworks_GiphyUITests;
+			sourceTree = "<group>";
+		};
+		251B3EA927099CF700C16C88 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				251B3EAA27099D0100C16C88 /* FWModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		251B3EAC27099D4B00C16C88 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				251B3EAD27099D5300C16C88 /* FWApiClient.swift */,
+			);
+			path = Network;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -258,9 +280,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				251B3E7C2708C47A00C16C88 /* ViewController.swift in Sources */,
 				251B3E782708C47A00C16C88 /* AppDelegate.swift in Sources */,
+				251B3EAB27099D0100C16C88 /* FWModel.swift in Sources */,
+				251B3EAE27099D5300C16C88 /* FWApiClient.swift in Sources */,
 				251B3E7A2708C47A00C16C88 /* SceneDelegate.swift in Sources */,
+				251B3EB127099DDA00C16C88 /* FWImageProcessing.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
