@@ -58,9 +58,6 @@ extension FWTrendingGifsViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! FWGifTableViewCell
-        let gifItem = viewModel.tableViewItems[indexPath.row]
-//        cell.textLabel?.text = "\(indexPath.row): \(gifItem.title)"
-//        cell.showLoading()
         viewModel.configure(cell: cell, at: indexPath)
         return cell
     }
@@ -86,5 +83,9 @@ extension FWTrendingGifsViewController: UITableViewDataSourcePrefetching {
 extension FWTrendingGifsViewController: FWTrendingGifsViewModelDelegate {
     func reloadTableView() {
         tableView.reloadData()
+    }
+    
+    func reloadTableViewRows(at indexPaths: [IndexPath]) {
+        tableView.reloadRows(at: indexPaths, with: .automatic)
     }
 }

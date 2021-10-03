@@ -9,6 +9,7 @@ import Foundation
 
 protocol FWTrendingGifsViewModelDelegate: AnyObject {
     func reloadTableView()
+    func reloadTableViewRows(at indexPaths: [IndexPath])
 }
 
 final class FWTrendingGifsViewModel {
@@ -16,15 +17,18 @@ final class FWTrendingGifsViewModel {
     private let paginator: FWPaginator
     private let imageMemoryCache: FWImageMemoryCache
     private let imageDiskCache: FWImageDiskCache
+    private let favGifsStore: FWFavouriteGifsStore
     
     private(set) var tableViewItems = [FWGiphyItem]()
     weak var delegate: FWTrendingGifsViewModelDelegate?
+    private var favouriteGifs = Set<String>()
     
     // MARK: - Init
     init() {
         self.paginator = FWPaginator()
         self.imageMemoryCache = FWImageMemoryCache()
         self.imageDiskCache = FWImageDiskCache()
+        self.favGifsStore = FWFavouriteGifsStore()
     }
 }
 
@@ -33,6 +37,10 @@ extension FWTrendingGifsViewModel {
     func configure(cell: FWGifTableViewCell, at indexPath: IndexPath) {
         guard indexPath.row < tableViewItems.count else { return }
         let gifItem = tableViewItems[indexPath.row]
+        
+        cell.delegate = self
+        cell.gifItemID = gifItem.id
+        cell.isFavourite = favouriteGifs.contains(gifItem.id)
         
         if let cachedImageData = imageMemoryCache.getImageData(forID: gifItem.id) {
             cell.gifImageView.animationImages = animationImages(from: cachedImageData)
@@ -98,5 +106,36 @@ private extension FWTrendingGifsViewModel {
             }
             completion(data)
         }.resume()
+    }
+}
+
+// MARK: - FWGifTableViewCellDelegate
+extension FWTrendingGifsViewModel: FWGifTableViewCellDelegate {
+    func toggleIsFavourite(gifItemID: String) {
+        guard let itemInfo = tableViewItems.enumerated().first(where: { $1.id == gifItemID }) else { return }
+        let rowIndex = itemInfo.0
+        let gifItem = itemInfo.1
+        
+        var imageData = imageMemoryCache.getImageData(forID: gifItem.id)
+        if imageData == nil {
+            imageData = imageDiskCache.getImageData(forID: gifItem.id)
+        }
+        guard let imageData = imageData else { return }
+        
+        let wasFavourite = favouriteGifs.contains(gifItemID)
+        let isFavourite = !wasFavourite
+        
+        DispatchQueue.global(qos: .userInitiated).async {
+            self.favGifsStore.setIsFavourite(isFavourite, gifItemID: gifItemID, imageData: imageData) {
+                DispatchQueue.main.async {
+                    if isFavourite {
+                        self.favouriteGifs.insert(gifItemID)
+                    } else {
+                        self.favouriteGifs.remove(gifItemID)
+                    }
+                    self.delegate?.reloadTableViewRows(at: [IndexPath(row: rowIndex, section: 0)])
+                }
+            }
+        }
     }
 }

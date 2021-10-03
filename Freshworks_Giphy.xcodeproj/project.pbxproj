@@ -29,6 +29,7 @@
 		251B3EC7270A1E2C00C16C88 /* FWImageMemoryCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 251B3EC6270A1E2C00C16C88 /* FWImageMemoryCache.swift */; };
 		251B3EC9270A1E3D00C16C88 /* FWImageDiskCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 251B3EC8270A1E3D00C16C88 /* FWImageDiskCache.swift */; };
 		251B3ECB270A270C00C16C88 /* FWConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 251B3ECA270A270C00C16C88 /* FWConstants.swift */; };
+		251B3ECF270A309B00C16C88 /* FWFavouriteGifsStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 251B3ECE270A309B00C16C88 /* FWFavouriteGifsStore.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -75,6 +76,7 @@
 		251B3EC6270A1E2C00C16C88 /* FWImageMemoryCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FWImageMemoryCache.swift; sourceTree = "<group>"; };
 		251B3EC8270A1E3D00C16C88 /* FWImageDiskCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FWImageDiskCache.swift; sourceTree = "<group>"; };
 		251B3ECA270A270C00C16C88 /* FWConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FWConstants.swift; sourceTree = "<group>"; };
+		251B3ECE270A309B00C16C88 /* FWFavouriteGifsStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FWFavouriteGifsStore.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -130,7 +132,7 @@
 				251B3EB22709A26200C16C88 /* FWTabBarController.swift */,
 				251B3EB92709A5FC00C16C88 /* Screens */,
 				251B3EB027099DDA00C16C88 /* FWImageProcessing.swift */,
-				251B3EC3270A1E0900C16C88 /* Cache */,
+				251B3EC3270A1E0900C16C88 /* Storage */,
 				251B3EAC27099D4B00C16C88 /* Network */,
 				251B3EA927099CF700C16C88 /* Model */,
 				251B3ECA270A270C00C16C88 /* FWConstants.swift */,
@@ -204,14 +206,15 @@
 			path = FavouriteGifs;
 			sourceTree = "<group>";
 		};
-		251B3EC3270A1E0900C16C88 /* Cache */ = {
+		251B3EC3270A1E0900C16C88 /* Storage */ = {
 			isa = PBXGroup;
 			children = (
 				251B3EC4270A1E1800C16C88 /* FWImageCache.swift */,
 				251B3EC6270A1E2C00C16C88 /* FWImageMemoryCache.swift */,
 				251B3EC8270A1E3D00C16C88 /* FWImageDiskCache.swift */,
+				251B3ECE270A309B00C16C88 /* FWFavouriteGifsStore.swift */,
 			);
-			path = Cache;
+			path = Storage;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -359,6 +362,7 @@
 				251B3EB72709A5EE00C16C88 /* FWTrendingGifsViewModel.swift in Sources */,
 				251B3EC7270A1E2C00C16C88 /* FWImageMemoryCache.swift in Sources */,
 				251B3E7A2708C47A00C16C88 /* SceneDelegate.swift in Sources */,
+				251B3ECF270A309B00C16C88 /* FWFavouriteGifsStore.swift in Sources */,
 				251B3EC22709FF3400C16C88 /* FWPaginator.swift in Sources */,
 				251B3EB127099DDA00C16C88 /* FWImageProcessing.swift in Sources */,
 			);
