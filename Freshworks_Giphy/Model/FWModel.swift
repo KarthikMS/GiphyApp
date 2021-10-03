@@ -20,6 +20,13 @@ struct FWGiphyItem: Codable {
 struct FWGiphyItemImages: Codable {
     let original: FWGiphyItemImage
     let downsized: FWGiphyItemImage
+    let fixedHeightDownsampled: FWGiphyItemImage
+    
+    enum CodingKeys: String, CodingKey {
+        case original
+        case downsized
+        case fixedHeightDownsampled = "fixed_height_downsampled"
+    }
 }
 
 struct FWGiphyItemImage: Codable {

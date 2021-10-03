@@ -23,6 +23,12 @@
 		251B3EB72709A5EE00C16C88 /* FWTrendingGifsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 251B3EB62709A5EE00C16C88 /* FWTrendingGifsViewModel.swift */; };
 		251B3EBC2709A66700C16C88 /* FWFavouriteGifsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 251B3EBB2709A66700C16C88 /* FWFavouriteGifsViewController.swift */; };
 		251B3EBE2709A67400C16C88 /* FWFavouriteGifsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 251B3EBD2709A67400C16C88 /* FWFavouriteGifsViewModel.swift */; };
+		251B3EC02709D3A000C16C88 /* FWGifTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 251B3EBF2709D3A000C16C88 /* FWGifTableViewCell.swift */; };
+		251B3EC22709FF3400C16C88 /* FWPaginator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 251B3EC12709FF3300C16C88 /* FWPaginator.swift */; };
+		251B3EC5270A1E1800C16C88 /* FWImageCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 251B3EC4270A1E1800C16C88 /* FWImageCache.swift */; };
+		251B3EC7270A1E2C00C16C88 /* FWImageMemoryCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 251B3EC6270A1E2C00C16C88 /* FWImageMemoryCache.swift */; };
+		251B3EC9270A1E3D00C16C88 /* FWImageDiskCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 251B3EC8270A1E3D00C16C88 /* FWImageDiskCache.swift */; };
+		251B3ECB270A270C00C16C88 /* FWConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 251B3ECA270A270C00C16C88 /* FWConstants.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,6 +69,12 @@
 		251B3EB62709A5EE00C16C88 /* FWTrendingGifsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FWTrendingGifsViewModel.swift; sourceTree = "<group>"; };
 		251B3EBB2709A66700C16C88 /* FWFavouriteGifsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FWFavouriteGifsViewController.swift; sourceTree = "<group>"; };
 		251B3EBD2709A67400C16C88 /* FWFavouriteGifsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FWFavouriteGifsViewModel.swift; sourceTree = "<group>"; };
+		251B3EBF2709D3A000C16C88 /* FWGifTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FWGifTableViewCell.swift; sourceTree = "<group>"; };
+		251B3EC12709FF3300C16C88 /* FWPaginator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FWPaginator.swift; sourceTree = "<group>"; };
+		251B3EC4270A1E1800C16C88 /* FWImageCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FWImageCache.swift; sourceTree = "<group>"; };
+		251B3EC6270A1E2C00C16C88 /* FWImageMemoryCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FWImageMemoryCache.swift; sourceTree = "<group>"; };
+		251B3EC8270A1E3D00C16C88 /* FWImageDiskCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FWImageDiskCache.swift; sourceTree = "<group>"; };
+		251B3ECA270A270C00C16C88 /* FWConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FWConstants.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -118,8 +130,10 @@
 				251B3EB22709A26200C16C88 /* FWTabBarController.swift */,
 				251B3EB92709A5FC00C16C88 /* Screens */,
 				251B3EB027099DDA00C16C88 /* FWImageProcessing.swift */,
+				251B3EC3270A1E0900C16C88 /* Cache */,
 				251B3EAC27099D4B00C16C88 /* Network */,
 				251B3EA927099CF700C16C88 /* Model */,
+				251B3ECA270A270C00C16C88 /* FWConstants.swift */,
 				251B3E7D2708C47A00C16C88 /* Main.storyboard */,
 				251B3E802708C47C00C16C88 /* Assets.xcassets */,
 				251B3E822708C47C00C16C88 /* LaunchScreen.storyboard */,
@@ -157,6 +171,7 @@
 			isa = PBXGroup;
 			children = (
 				251B3EAD27099D5300C16C88 /* FWApiClient.swift */,
+				251B3EC12709FF3300C16C88 /* FWPaginator.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -166,6 +181,7 @@
 			children = (
 				251B3EB42709A5E200C16C88 /* FWTrendingGifsViewController.swift */,
 				251B3EB62709A5EE00C16C88 /* FWTrendingGifsViewModel.swift */,
+				251B3EBF2709D3A000C16C88 /* FWGifTableViewCell.swift */,
 			);
 			path = TrendingGifs;
 			sourceTree = "<group>";
@@ -186,6 +202,16 @@
 				251B3EBD2709A67400C16C88 /* FWFavouriteGifsViewModel.swift */,
 			);
 			path = FavouriteGifs;
+			sourceTree = "<group>";
+		};
+		251B3EC3270A1E0900C16C88 /* Cache */ = {
+			isa = PBXGroup;
+			children = (
+				251B3EC4270A1E1800C16C88 /* FWImageCache.swift */,
+				251B3EC6270A1E2C00C16C88 /* FWImageMemoryCache.swift */,
+				251B3EC8270A1E3D00C16C88 /* FWImageDiskCache.swift */,
+			);
+			path = Cache;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -319,15 +345,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				251B3EC02709D3A000C16C88 /* FWGifTableViewCell.swift in Sources */,
 				251B3EB52709A5E200C16C88 /* FWTrendingGifsViewController.swift in Sources */,
+				251B3EC5270A1E1800C16C88 /* FWImageCache.swift in Sources */,
 				251B3EB32709A26200C16C88 /* FWTabBarController.swift in Sources */,
 				251B3EBC2709A66700C16C88 /* FWFavouriteGifsViewController.swift in Sources */,
 				251B3E782708C47A00C16C88 /* AppDelegate.swift in Sources */,
+				251B3ECB270A270C00C16C88 /* FWConstants.swift in Sources */,
+				251B3EC9270A1E3D00C16C88 /* FWImageDiskCache.swift in Sources */,
 				251B3EBE2709A67400C16C88 /* FWFavouriteGifsViewModel.swift in Sources */,
 				251B3EAB27099D0100C16C88 /* FWModel.swift in Sources */,
 				251B3EAE27099D5300C16C88 /* FWApiClient.swift in Sources */,
 				251B3EB72709A5EE00C16C88 /* FWTrendingGifsViewModel.swift in Sources */,
+				251B3EC7270A1E2C00C16C88 /* FWImageMemoryCache.swift in Sources */,
 				251B3E7A2708C47A00C16C88 /* SceneDelegate.swift in Sources */,
+				251B3EC22709FF3400C16C88 /* FWPaginator.swift in Sources */,
 				251B3EB127099DDA00C16C88 /* FWImageProcessing.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
