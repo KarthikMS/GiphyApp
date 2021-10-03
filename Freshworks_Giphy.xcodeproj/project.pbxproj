@@ -18,6 +18,11 @@
 		251B3EAB27099D0100C16C88 /* FWModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 251B3EAA27099D0100C16C88 /* FWModel.swift */; };
 		251B3EAE27099D5300C16C88 /* FWApiClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 251B3EAD27099D5300C16C88 /* FWApiClient.swift */; };
 		251B3EB127099DDA00C16C88 /* FWImageProcessing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 251B3EB027099DDA00C16C88 /* FWImageProcessing.swift */; };
+		251B3EB32709A26200C16C88 /* FWTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 251B3EB22709A26200C16C88 /* FWTabBarController.swift */; };
+		251B3EB52709A5E200C16C88 /* FWTrendingGifsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 251B3EB42709A5E200C16C88 /* FWTrendingGifsViewController.swift */; };
+		251B3EB72709A5EE00C16C88 /* FWTrendingGifsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 251B3EB62709A5EE00C16C88 /* FWTrendingGifsViewModel.swift */; };
+		251B3EBC2709A66700C16C88 /* FWFavouriteGifsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 251B3EBB2709A66700C16C88 /* FWFavouriteGifsViewController.swift */; };
+		251B3EBE2709A67400C16C88 /* FWFavouriteGifsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 251B3EBD2709A67400C16C88 /* FWFavouriteGifsViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +58,11 @@
 		251B3EAA27099D0100C16C88 /* FWModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FWModel.swift; sourceTree = "<group>"; };
 		251B3EAD27099D5300C16C88 /* FWApiClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FWApiClient.swift; sourceTree = "<group>"; };
 		251B3EB027099DDA00C16C88 /* FWImageProcessing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FWImageProcessing.swift; sourceTree = "<group>"; };
+		251B3EB22709A26200C16C88 /* FWTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FWTabBarController.swift; sourceTree = "<group>"; };
+		251B3EB42709A5E200C16C88 /* FWTrendingGifsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FWTrendingGifsViewController.swift; sourceTree = "<group>"; };
+		251B3EB62709A5EE00C16C88 /* FWTrendingGifsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FWTrendingGifsViewModel.swift; sourceTree = "<group>"; };
+		251B3EBB2709A66700C16C88 /* FWFavouriteGifsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FWFavouriteGifsViewController.swift; sourceTree = "<group>"; };
+		251B3EBD2709A67400C16C88 /* FWFavouriteGifsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FWFavouriteGifsViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,6 +115,8 @@
 			children = (
 				251B3E772708C47A00C16C88 /* AppDelegate.swift */,
 				251B3E792708C47A00C16C88 /* SceneDelegate.swift */,
+				251B3EB22709A26200C16C88 /* FWTabBarController.swift */,
+				251B3EB92709A5FC00C16C88 /* Screens */,
 				251B3EB027099DDA00C16C88 /* FWImageProcessing.swift */,
 				251B3EAC27099D4B00C16C88 /* Network */,
 				251B3EA927099CF700C16C88 /* Model */,
@@ -147,6 +159,33 @@
 				251B3EAD27099D5300C16C88 /* FWApiClient.swift */,
 			);
 			path = Network;
+			sourceTree = "<group>";
+		};
+		251B3EB82709A5F200C16C88 /* TrendingGifs */ = {
+			isa = PBXGroup;
+			children = (
+				251B3EB42709A5E200C16C88 /* FWTrendingGifsViewController.swift */,
+				251B3EB62709A5EE00C16C88 /* FWTrendingGifsViewModel.swift */,
+			);
+			path = TrendingGifs;
+			sourceTree = "<group>";
+		};
+		251B3EB92709A5FC00C16C88 /* Screens */ = {
+			isa = PBXGroup;
+			children = (
+				251B3EB82709A5F200C16C88 /* TrendingGifs */,
+				251B3EBA2709A65100C16C88 /* FavouriteGifs */,
+			);
+			path = Screens;
+			sourceTree = "<group>";
+		};
+		251B3EBA2709A65100C16C88 /* FavouriteGifs */ = {
+			isa = PBXGroup;
+			children = (
+				251B3EBB2709A66700C16C88 /* FWFavouriteGifsViewController.swift */,
+				251B3EBD2709A67400C16C88 /* FWFavouriteGifsViewModel.swift */,
+			);
+			path = FavouriteGifs;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -280,9 +319,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				251B3EB52709A5E200C16C88 /* FWTrendingGifsViewController.swift in Sources */,
+				251B3EB32709A26200C16C88 /* FWTabBarController.swift in Sources */,
+				251B3EBC2709A66700C16C88 /* FWFavouriteGifsViewController.swift in Sources */,
 				251B3E782708C47A00C16C88 /* AppDelegate.swift in Sources */,
+				251B3EBE2709A67400C16C88 /* FWFavouriteGifsViewModel.swift in Sources */,
 				251B3EAB27099D0100C16C88 /* FWModel.swift in Sources */,
 				251B3EAE27099D5300C16C88 /* FWApiClient.swift in Sources */,
+				251B3EB72709A5EE00C16C88 /* FWTrendingGifsViewModel.swift in Sources */,
 				251B3E7A2708C47A00C16C88 /* SceneDelegate.swift in Sources */,
 				251B3EB127099DDA00C16C88 /* FWImageProcessing.swift in Sources */,
 			);
@@ -470,6 +514,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -497,6 +542,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
