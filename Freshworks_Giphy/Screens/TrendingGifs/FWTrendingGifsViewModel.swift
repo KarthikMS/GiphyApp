@@ -27,6 +27,7 @@ final class FWTrendingGifsViewModel: NSObject {
     private let imageMemoryCache: FWImageMemoryCache
     private let imageDiskCache: FWImageDiskCache
     private let favGifsStore: FWFavouriteGifsStore
+    private lazy var throttler = FWThrottler(throttleDelay: 0.3, throttleQueue: .main)
     
     // MARK: - Properties
     weak var delegate: FWTrendingGifsViewModelDelegate?
@@ -172,17 +173,20 @@ extension FWTrendingGifsViewModel: UISearchBarDelegate {
     }
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        if searchText == "" {
-            listType = .trendingGifs
-            delegate?.reloadTableView()
-        } else {
-            apiClient.searchGifs(query: searchText) { [weak self] gifItems in
-                DispatchQueue.main.async {
-                    self?.listType = .searchResults
-                    self?.searchResults = gifItems
-                    self?.delegate?.reloadTableView()
+        throttler.throttle { [weak self] in
+            if searchText.isEmpty {
+                self?.listType = .trendingGifs
+                self?.delegate?.reloadTableView()
+            } else {
+                self?.apiClient.searchGifs(query: searchText) { [weak self] gifItems in
+                    DispatchQueue.main.async {
+                        self?.listType = .searchResults
+                        self?.searchResults = gifItems
+                        self?.delegate?.reloadTableView()
+                    }
                 }
             }
         }
+        
     }
 }

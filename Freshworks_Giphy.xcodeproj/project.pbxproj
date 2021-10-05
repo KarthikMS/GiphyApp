@@ -30,6 +30,7 @@
 		251B3EC9270A1E3D00C16C88 /* FWImageDiskCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 251B3EC8270A1E3D00C16C88 /* FWImageDiskCache.swift */; };
 		251B3ECB270A270C00C16C88 /* FWConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 251B3ECA270A270C00C16C88 /* FWConstants.swift */; };
 		251B3ECF270A309B00C16C88 /* FWFavouriteGifsStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 251B3ECE270A309B00C16C88 /* FWFavouriteGifsStore.swift */; };
+		25B7255F270C8A0C001E86BC /* FWThrottler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25B7255E270C8A0C001E86BC /* FWThrottler.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -77,6 +78,7 @@
 		251B3EC8270A1E3D00C16C88 /* FWImageDiskCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FWImageDiskCache.swift; sourceTree = "<group>"; };
 		251B3ECA270A270C00C16C88 /* FWConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FWConstants.swift; sourceTree = "<group>"; };
 		251B3ECE270A309B00C16C88 /* FWFavouriteGifsStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FWFavouriteGifsStore.swift; sourceTree = "<group>"; };
+		25B7255E270C8A0C001E86BC /* FWThrottler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FWThrottler.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -135,6 +137,7 @@
 				251B3EC3270A1E0900C16C88 /* Storage */,
 				251B3EAC27099D4B00C16C88 /* Network */,
 				251B3EA927099CF700C16C88 /* Model */,
+				25B7255D270C89FF001E86BC /* Util */,
 				251B3ECA270A270C00C16C88 /* FWConstants.swift */,
 				251B3E7D2708C47A00C16C88 /* Main.storyboard */,
 				251B3E802708C47C00C16C88 /* Assets.xcassets */,
@@ -215,6 +218,14 @@
 				251B3ECE270A309B00C16C88 /* FWFavouriteGifsStore.swift */,
 			);
 			path = Storage;
+			sourceTree = "<group>";
+		};
+		25B7255D270C89FF001E86BC /* Util */ = {
+			isa = PBXGroup;
+			children = (
+				25B7255E270C8A0C001E86BC /* FWThrottler.swift */,
+			);
+			path = Util;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -355,6 +366,7 @@
 				251B3EBC2709A66700C16C88 /* FWFavouriteGifsViewController.swift in Sources */,
 				251B3E782708C47A00C16C88 /* AppDelegate.swift in Sources */,
 				251B3ECB270A270C00C16C88 /* FWConstants.swift in Sources */,
+				25B7255F270C8A0C001E86BC /* FWThrottler.swift in Sources */,
 				251B3EC9270A1E3D00C16C88 /* FWImageDiskCache.swift in Sources */,
 				251B3EBE2709A67400C16C88 /* FWFavouriteGifsViewModel.swift in Sources */,
 				251B3EAB27099D0100C16C88 /* FWModel.swift in Sources */,
