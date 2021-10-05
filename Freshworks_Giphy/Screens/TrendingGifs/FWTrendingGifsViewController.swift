@@ -22,7 +22,6 @@ final class FWTrendingGifsViewController: UIViewController {
         let tv = UITableView()
         tv.register(FWGifTableViewCell.self, forCellReuseIdentifier: "cell")
         tv.dataSource = self
-        tv.delegate = self
         tv.prefetchDataSource = self
         tv.rowHeight = 200
         tv.translatesAutoresizingMaskIntoConstraints = false
@@ -75,11 +74,6 @@ extension FWTrendingGifsViewController: UITableViewDataSource {
         viewModel.configure(cell: cell, at: indexPath)
         return cell
     }
-}
-
-// MARK: - UITableViewDelegate
-extension FWTrendingGifsViewController: UITableViewDelegate {
-    
 }
 
 // MARK: - UITableViewDataSourcePrefetching
