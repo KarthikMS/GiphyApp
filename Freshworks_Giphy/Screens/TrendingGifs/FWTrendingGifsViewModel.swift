@@ -6,29 +6,49 @@
 //
 
 import Foundation
+import UIKit
 
 protocol FWTrendingGifsViewModelDelegate: AnyObject {
     func reloadTableView()
     func reloadTableViewRows(at indexPaths: [IndexPath])
 }
 
-final class FWTrendingGifsViewModel {
-    // MARK: - Properties
+private extension FWTrendingGifsViewModel {
+    enum ListType {
+        case trendingGifs
+        case searchResults
+    }
+}
+
+final class FWTrendingGifsViewModel: NSObject {
+    // MARK: - Dependencies
+    private let apiClient: FWApiClient
     private let paginator: FWPaginator
     private let imageMemoryCache: FWImageMemoryCache
     private let imageDiskCache: FWImageDiskCache
     private let favGifsStore: FWFavouriteGifsStore
     
-    private(set) var tableViewItems = [FWGiphyItem]()
+    // MARK: - Properties
     weak var delegate: FWTrendingGifsViewModelDelegate?
+    private var listType: ListType = .trendingGifs
+    private var trendingGifs = [FWGiphyItem]()
+    private var searchResults = [FWGiphyItem]()
+    var tableViewItems: [FWGiphyItem] {
+        switch listType {
+        case .trendingGifs: return trendingGifs
+        case .searchResults: return searchResults
+        }
+    }
     private var favouriteGifs = Set<String>()
     
     // MARK: - Init
-    init() {
-        self.paginator = FWPaginator()
+    init(apiClient: FWApiClient = FWApiClient()) {
+        self.apiClient = apiClient
+        self.paginator = FWPaginator(apiClient: apiClient)
         self.imageMemoryCache = FWImageMemoryCache()
         self.imageDiskCache = FWImageDiskCache()
         self.favGifsStore = FWFavouriteGifsStore()
+        super.init()
     }
 }
 
@@ -78,7 +98,7 @@ extension FWTrendingGifsViewModel {
     func fetchFirstPage() {
         paginator.startFromFirstPage { [weak self] gifItems in
             DispatchQueue.main.async {
-                self?.tableViewItems = gifItems
+                self?.trendingGifs = gifItems
                 self?.delegate?.reloadTableView()
             }
         }
@@ -87,7 +107,7 @@ extension FWTrendingGifsViewModel {
     func fetchNextPage() {
         paginator.getNextPage { [weak self] gifItems in
             DispatchQueue.main.async {
-                self?.tableViewItems.append(contentsOf: gifItems)
+                self?.trendingGifs.append(contentsOf: gifItems)
                 self?.delegate?.reloadTableView()
             }
         }
@@ -134,6 +154,33 @@ extension FWTrendingGifsViewModel: FWGifTableViewCellDelegate {
                         self.favouriteGifs.remove(gifItemID)
                     }
                     self.delegate?.reloadTableViewRows(at: [IndexPath(row: rowIndex, section: 0)])
+                }
+            }
+        }
+    }
+}
+
+// MARK: - UISearchBarDelegate
+extension FWTrendingGifsViewModel: UISearchBarDelegate {
+    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
+        searchBar.showsCancelButton = true
+    }
+    
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.showsCancelButton = false
+        searchBar.resignFirstResponder()
+    }
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        if searchText == "" {
+            listType = .trendingGifs
+            delegate?.reloadTableView()
+        } else {
+            apiClient.searchGifs(query: searchText) { [weak self] gifItems in
+                DispatchQueue.main.async {
+                    self?.listType = .searchResults
+                    self?.searchResults = gifItems
+                    self?.delegate?.reloadTableView()
                 }
             }
         }

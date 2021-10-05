@@ -26,7 +26,7 @@ class FWApiClient {
             guard let data = data else { return }
             
             guard let responseObject = try? JSONDecoder().decode(FWGiphyItemsAPIResponse.self, from: data) else {
-                print("error")
+                print("API Response Error: Unable to decode JSON response")
                 return
             }
             
@@ -37,7 +37,7 @@ class FWApiClient {
         return task
     }
     
-    func searchGifs(query: String) {
+    func searchGifs(query: String, completion: @escaping ([FWGiphyItem]) -> Void) {
         guard var urlComponents = URLComponents(string: "https://api.giphy.com/v1/gifs/search") else { return }
         urlComponents.queryItems = [
             URLQueryItem(name: "api_key", value: "ztOIgXf080gisfb4wNDXhg7SimzFj6AD"),
@@ -49,17 +49,17 @@ class FWApiClient {
         
         URLSession.shared.dataTask(with: url) { data, response, error in
             guard error == nil else {
-                print("API Response Error: \(error?.localizedDescription)")
+                print("API Response Error: \(error!.localizedDescription)")
                 return
             }
             guard let data = data else { return }
             
             guard let responseObject = try? JSONDecoder().decode(FWGiphyItemsAPIResponse.self, from: data) else {
-                print("error")
+                print("API Response Error: Unable to decode JSON response")
                 return
             }
             
-            // TODO
+            completion(responseObject.data)
         }
         .resume()
     }

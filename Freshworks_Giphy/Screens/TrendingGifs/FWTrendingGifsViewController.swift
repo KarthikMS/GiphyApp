@@ -9,6 +9,15 @@ import UIKit
 
 final class FWTrendingGifsViewController: UIViewController {
     // MARK: - Views
+    private lazy var searchBar: UISearchBar = {
+        let s = UISearchBar()
+        s.placeholder = "Search for GIFs"
+        s.delegate = viewModel
+        s.searchTextField.clearButtonMode = .whileEditing
+        s.translatesAutoresizingMaskIntoConstraints = false
+        return s
+    }()
+    
     private lazy var tableView: UITableView = {
         let tv = UITableView()
         tv.register(FWGifTableViewCell.self, forCellReuseIdentifier: "cell")
@@ -39,12 +48,17 @@ extension FWTrendingGifsViewController {
 // MARK: - Setup
 private extension FWTrendingGifsViewController {
     func addSubviews() {
+        view.addSubview(searchBar)
         view.addSubview(tableView)
         
         NSLayoutConstraint.activate([
+            searchBar.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
+            searchBar.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
+            searchBar.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+            
             tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            tableView.topAnchor.constraint(equalTo: view.topAnchor),
+            tableView.topAnchor.constraint(equalTo: searchBar.bottomAnchor),
             tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
         ])
     }
