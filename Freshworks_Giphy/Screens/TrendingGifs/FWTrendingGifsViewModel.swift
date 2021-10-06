@@ -92,6 +92,11 @@ extension FWTrendingGifsViewModel {
             }
         }
     }
+    
+    func refreshFavouriteGifs() {
+        favouriteGifs = Set(favGifsStore.getAllFavouriteGifs().map { $0.id })
+        delegate?.reloadTableView()
+    }
 }
 
 // MARK: - Fetching
@@ -147,7 +152,7 @@ extension FWTrendingGifsViewModel: FWGifTableViewCellDelegate {
         let isFavourite = !wasFavourite
         
         DispatchQueue.global(qos: .userInitiated).async {
-            self.favGifsStore.setIsFavourite(isFavourite, gifItemID: gifItemID, imageData: imageData) {
+            self.favGifsStore.setIsFavourite(isFavourite, gifItem: gifItem, imageData: imageData) {
                 DispatchQueue.main.async {
                     if isFavourite {
                         self.favouriteGifs.insert(gifItemID)

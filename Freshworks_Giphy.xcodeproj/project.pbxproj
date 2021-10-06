@@ -31,6 +31,7 @@
 		251B3ECB270A270C00C16C88 /* FWConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 251B3ECA270A270C00C16C88 /* FWConstants.swift */; };
 		251B3ECF270A309B00C16C88 /* FWFavouriteGifsStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 251B3ECE270A309B00C16C88 /* FWFavouriteGifsStore.swift */; };
 		25B7255F270C8A0C001E86BC /* FWThrottler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25B7255E270C8A0C001E86BC /* FWThrottler.swift */; };
+		25B72561270D84CC001E86BC /* FWGifCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25B72560270D84CC001E86BC /* FWGifCollectionViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -79,6 +80,7 @@
 		251B3ECA270A270C00C16C88 /* FWConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FWConstants.swift; sourceTree = "<group>"; };
 		251B3ECE270A309B00C16C88 /* FWFavouriteGifsStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FWFavouriteGifsStore.swift; sourceTree = "<group>"; };
 		25B7255E270C8A0C001E86BC /* FWThrottler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FWThrottler.swift; sourceTree = "<group>"; };
+		25B72560270D84CC001E86BC /* FWGifCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FWGifCollectionViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -205,6 +207,7 @@
 			children = (
 				251B3EBB2709A66700C16C88 /* FWFavouriteGifsViewController.swift */,
 				251B3EBD2709A67400C16C88 /* FWFavouriteGifsViewModel.swift */,
+				25B72560270D84CC001E86BC /* FWGifCollectionViewCell.swift */,
 			);
 			path = FavouriteGifs;
 			sourceTree = "<group>";
@@ -372,6 +375,7 @@
 				251B3EAB27099D0100C16C88 /* FWModel.swift in Sources */,
 				251B3EAE27099D5300C16C88 /* FWApiClient.swift in Sources */,
 				251B3EB72709A5EE00C16C88 /* FWTrendingGifsViewModel.swift in Sources */,
+				25B72561270D84CC001E86BC /* FWGifCollectionViewCell.swift in Sources */,
 				251B3EC7270A1E2C00C16C88 /* FWImageMemoryCache.swift in Sources */,
 				251B3E7A2708C47A00C16C88 /* SceneDelegate.swift in Sources */,
 				251B3ECF270A309B00C16C88 /* FWFavouriteGifsStore.swift in Sources */,

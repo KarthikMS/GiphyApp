@@ -33,7 +33,7 @@ final class FWFavouriteGifsViewController: UIViewController {
         
         let c = UICollectionView(frame: .zero, collectionViewLayout: l)
         
-        c.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "cell")
+        c.register(FWGifCollectionViewCell.self, forCellWithReuseIdentifier: "cell")
         c.dataSource = self
         c.delegate = self
         c.translatesAutoresizingMaskIntoConstraints = false
@@ -50,7 +50,14 @@ extension FWFavouriteGifsViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
+        viewModel.delegate = self
         addSubviews()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        viewModel.loadFavGifs()
+        collectionView.reloadData()
     }
 }
 
@@ -84,12 +91,12 @@ private extension FWFavouriteGifsViewController {
 // MARK: - UICollectionViewDataSource
 extension FWFavouriteGifsViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        30
+        viewModel.collectionViewItems.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath)
-        cell.backgroundColor = .red
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! FWGifCollectionViewCell
+        viewModel.configure(cell: cell, at: indexPath)
         return cell
     }
 }
@@ -121,5 +128,12 @@ extension FWFavouriteGifsViewController: UICollectionViewDelegateFlowLayout {
         case .list:
             return CGSize(width: collectionView.frame.width, height: 200)
         }
+    }
+}
+
+// MARK: - FWFavouriteGifsViewModelDelegate
+extension FWFavouriteGifsViewController: FWFavouriteGifsViewModelDelegate {
+    func reloadCollectionView() {
+        collectionView.reloadData()
     }
 }

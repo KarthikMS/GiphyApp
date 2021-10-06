@@ -42,6 +42,11 @@ extension FWTrendingGifsViewController {
         addSubviews()
         viewModel.fetchFirstPage()
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        viewModel.refreshFavouriteGifs()
+    }
 }
 
 // MARK: - Setup
